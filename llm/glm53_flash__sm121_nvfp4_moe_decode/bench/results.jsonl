@@ -1,0 +1,6 @@
+{"id": "decode_m1_k4096_n2048_e144_topk8", "status": "BASELINE_ONLY", "M": 1, "E": 144, "topk": 8, "baseline_us": 533.9306592941284}
+{"id": "decode_m8_k4096_n2048_e144_topk8", "status": "BASELINE_ONLY", "M": 8, "E": 144, "topk": 8, "baseline_us": 3095.850626627604}
+{"id": "reg_m2_k4096_n2048_e144_topk8", "status": "BASELINE_ONLY", "M": 2, "E": 144, "topk": 8, "baseline_us": 1044.8853174845378}
+{"id": "reg_m4_k4096_n2048_e144_topk8", "status": "BASELINE_ONLY", "M": 4, "E": 144, "topk": 8, "baseline_us": 2027.7652740478516}
+{"id": "reg_m8_k4096_n2048_e16_topk8", "status": "BASELINE_ONLY", "M": 8, "E": 16, "topk": 8, "baseline_us": 1073.4612941741943}
+{"id": "reg_m1_k4096_n2048_e144_topk1", "status": "BASELINE_ONLY", "M": 1, "E": 144, "topk": 1, "baseline_us": 78.35733393828075}

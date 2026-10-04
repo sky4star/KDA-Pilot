@@ -1,0 +1,149 @@
+[
+  {
+    "id": "prod_m5_k4096_n12576",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 4096, "N": 12576},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "dense MLP gate_up (intermediate_size 12288 + router 288), 34 launches/step"
+  },
+  {
+    "id": "prod_m5_k4096_n2048",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 4096, "N": 2048},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "down proj / shared expert, 42 launches/step"
+  },
+  {
+    "id": "prod_m5_k1024_n4096",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 1024, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "42 launches/step"
+  },
+  {
+    "id": "prod_m5_k4096_n4096",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "attention o_proj / general, 34 launches/step"
+  },
+  {
+    "id": "prod_m5_k4096_n128",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 4096, "N": 128},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "small attention projection, 22 launches/step"
+  },
+  {
+    "id": "prod_m5_k1536_n8192",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 1536, "N": 8192},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "q_b_proj (q_lora_rank 1536 -> 64 heads), 11 launches/step"
+  },
+  {
+    "id": "prod_m5_k8192_n4096",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 8192, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "11 launches/step"
+  },
+  {
+    "id": "prod_m5_k6144_n4096",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 5, "K": 6144, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "3 launches/step"
+  },
+  {
+    "id": "prod_m1_k4096_n77440_lmhead",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 1, "K": 4096, "N": 77440},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "lm_head, TP=2 shard, M=1"
+  },
+  {
+    "id": "prod_m8_k24576_n4096_draft_fc",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 8, "K": 24576, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "DSpark draft fc 24576->4096, 5 launches/step"
+  },
+  {
+    "id": "prod_m8_k4096_n20480_draft",
+    "function": "bf16_gemv",
+    "production": true,
+    "shapes": {"M": 8, "K": 4096, "N": 20480},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "DSpark draft projection, 5 launches/step"
+  },
+  {
+    "id": "reg_m1_k4096_n4096",
+    "function": "bf16_gemv",
+    "production": false,
+    "shapes": {"M": 1, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2
+  },
+  {
+    "id": "reg_m8_k4096_n128",
+    "function": "bf16_gemv",
+    "production": false,
+    "shapes": {"M": 8, "K": 4096, "N": 128},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2,
+    "note": "known cuBLAS-win bucket; candidate must fall back"
+  },
+  {
+    "id": "reg_m8_k4096_n4096",
+    "function": "bf16_gemv",
+    "production": false,
+    "shapes": {"M": 8, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2
+  },
+  {
+    "id": "reg_m2_k4096_n4096",
+    "function": "bf16_gemv",
+    "production": false,
+    "shapes": {"M": 2, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2,
+    "rtol": 2e-2
+  }
+]
