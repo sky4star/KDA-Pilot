@@ -1,0 +1,128 @@
+{
+ "meta": {
+  "backend": "flashinfer cutlass_fused_moe (production baseline)",
+  "E": 144,
+  "topk": 8,
+  "K": 4096,
+  "N": 2048,
+  "per_expert_bytes_mb": 14.16,
+  "bw_roof_gbps": 240,
+  "fp4_dense_peak_tflops": 330,
+  "ridge_flop_per_byte": 1375,
+  "note": "fresh 2026-10-03 sweep; bytes=distinct_experts*(w13+w2+SF); weights 2.04GB >> L2 25MB so cold-L2 by construction; cross-checks docs: M=4096 17.69ms/93TF vs docs 17.73/93, M=8192 28.34/116.4 vs 28.20/117"
+ },
+ "rows": [
+  {
+   "M": 1,
+   "distinct_experts": 8,
+   "us": 560.2,
+   "gbps": 202.2,
+   "tflops": 0.7,
+   "ai": 3.6
+  },
+  {
+   "M": 2,
+   "distinct_experts": 14,
+   "us": 922.4,
+   "gbps": 214.8,
+   "tflops": 0.9,
+   "ai": 4.1
+  },
+  {
+   "M": 4,
+   "distinct_experts": 31,
+   "us": 1947.6,
+   "gbps": 225.3,
+   "tflops": 0.8,
+   "ai": 3.7
+  },
+  {
+   "M": 8,
+   "distinct_experts": 56,
+   "us": 3466.5,
+   "gbps": 228.7,
+   "tflops": 0.9,
+   "ai": 4.1
+  },
+  {
+   "M": 16,
+   "distinct_experts": 90,
+   "us": 5550.4,
+   "gbps": 229.5,
+   "tflops": 1.2,
+   "ai": 5.1
+  },
+  {
+   "M": 32,
+   "distinct_experts": 114,
+   "us": 7063.4,
+   "gbps": 228.5,
+   "tflops": 1.8,
+   "ai": 8.0
+  },
+  {
+   "M": 64,
+   "distinct_experts": 143,
+   "us": 8890.4,
+   "gbps": 227.7,
+   "tflops": 2.9,
+   "ai": 12.7
+  },
+  {
+   "M": 128,
+   "distinct_experts": 144,
+   "us": 9069.0,
+   "gbps": 224.8,
+   "tflops": 5.7,
+   "ai": 25.3
+  },
+  {
+   "M": 256,
+   "distinct_experts": 144,
+   "us": 9309.1,
+   "gbps": 219.0,
+   "tflops": 11.1,
+   "ai": 50.6
+  },
+  {
+   "M": 512,
+   "distinct_experts": 144,
+   "us": 9743.5,
+   "gbps": 209.2,
+   "tflops": 21.2,
+   "ai": 101.1
+  },
+  {
+   "M": 1024,
+   "distinct_experts": 144,
+   "us": 10580.7,
+   "gbps": 192.7,
+   "tflops": 39.0,
+   "ai": 202.3
+  },
+  {
+   "M": 2048,
+   "distinct_experts": 144,
+   "us": 12387.5,
+   "gbps": 164.6,
+   "tflops": 66.6,
+   "ai": 404.5
+  },
+  {
+   "M": 4096,
+   "distinct_experts": 144,
+   "us": 17687.5,
+   "gbps": 115.2,
+   "tflops": 93.2,
+   "ai": 809.1
+  },
+  {
+   "M": 8192,
+   "distinct_experts": 144,
+   "us": 28343.1,
+   "gbps": 71.9,
+   "tflops": 116.4,
+   "ai": 1618.2
+  }
+ ]
+}

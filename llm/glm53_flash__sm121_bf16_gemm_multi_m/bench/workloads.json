@@ -1,0 +1,112 @@
+[
+  {
+    "id": "prod_m42_k4096_n12576",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 4096, "N": 12576},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "42-token extend, dense MLP gate_up (inter 12288 + router 288); 34 launches"
+  },
+  {
+    "id": "prod_m42_k4096_n4096",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "attention o_proj; nvjet at 157 GB/s"
+  },
+  {
+    "id": "prod_m42_k4096_n2048",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 4096, "N": 2048},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "down proj/shared expert; wmma at 130 GB/s (biggest gap)"
+  },
+  {
+    "id": "prod_m42_k1024_n4096",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 1024, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "prod_m42_k8192_n4096",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 8192, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "prod_m42_k6144_n4096",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 6144, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "prod_m42_k1536_n8192",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 1536, "N": 8192},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "prod_m42_k4096_n24576",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 42, "K": 4096, "N": 24576},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "DSpark draft fc transposed / wide"
+  },
+  {
+    "id": "prod_m8_k24576_n4096",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 8, "K": 24576, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "DSpark draft fc; fell back to wmma at 205 GB/s"
+  },
+  {
+    "id": "prod_m8_k4096_n20480",
+    "function": "bf16_gemm",
+    "production": true,
+    "shapes": {"M": 8, "K": 4096, "N": 20480},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2,
+    "note": "DSpark draft; fell back to wmma at 222 GB/s"
+  },
+  {
+    "id": "reg_m16_k4096_n4096",
+    "function": "bf16_gemm",
+    "production": false,
+    "shapes": {"M": 16, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "reg_m64_k4096_n4096",
+    "function": "bf16_gemm",
+    "production": false,
+    "shapes": {"M": 64, "K": 4096, "N": 4096},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  },
+  {
+    "id": "reg_m42_k4096_n128",
+    "function": "bf16_gemm",
+    "production": false,
+    "shapes": {"M": 42, "K": 4096, "N": 128},
+    "dtypes": {"x": "bfloat16", "w": "bfloat16", "out": "bfloat16"},
+    "atol": 7e-2, "rtol": 2e-2
+  }
+]
